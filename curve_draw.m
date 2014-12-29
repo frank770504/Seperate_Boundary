@@ -8,22 +8,22 @@ global weight
 
 %=sampling?=%
 is_sample = 1;
-%RandStream.setDefaultStream(RandStream('mt19937ar','seed',0));
+RandStream.setDefaultStream(RandStream('mt19937ar','seed',4));
 %===========%
 
 %=generate the weighting of f function =%
 N = 2; %Space number
-span = 10; %Range field
+span = 50; %Range field
 weight = span*(rand(N+1, 1) - 0.5);
 %=======================================%
 
 %=generate the point and label=%
-Np = 200;%point number
+Np = 400;%point number
 points = span*(rand(Np, N) - 0.5);
 points(:,N+1) = 1;
 label = [];
 for i=1:Np,
-   label = [label; sign(weight'*points(i,:)')];
+   label = [label; sign(weight'*FeaTr(points(i,:), 2)')];
 end
 points =[points label];
 %==============================%
