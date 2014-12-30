@@ -1,0 +1,5 @@
+The main script is in curve_draw.m
+
+Just run, and the figure will show up
+
+Also, if changing the "seedN", the shape will be changed
