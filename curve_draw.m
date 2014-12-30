@@ -6,9 +6,15 @@ global N
 global Np
 global weight
 
+%=Select the seed number=%
+%different seed number will lead to different shape
+%recommand: 0 3 5 7 10 .... can try more
+seedN = 7;
+%========================%
+
 %=sampling?=%
-is_sample = 1;
-RandStream.setDefaultStream(RandStream('mt19937ar','seed',0));
+is_sample = 1;%just for randomly reducing the number of points
+RandStream.setDefaultStream(RandStream('mt19937ar','seed',seedN));
 %===========%
 
 %=generate the weighting of f function =%
@@ -29,6 +35,7 @@ points =[points label];
 %==============================%
 
 %=if need sample=%
+%just for randomly reducing the number of points
 if is_sample ==1,
     Nt = Np;
     Np = 100;%sample points
@@ -40,6 +47,7 @@ end
 %================&
 
 %=ezplot=%
+%the plot is just for "N = 2" and  "FeaTr(points(i,:), 2)"
 syms x y
 str = sprintf('%f*(sin(x)^2)+%f*(cos(y)^2)+%f', weight(1), weight(2), weight(3));
 fig = ezplot(str);
@@ -47,6 +55,7 @@ set(fig,'Color', 'k');
 %========%
 
 %=plot the data set=%
+%the plot is just for "N = 2"
 hold on
 for i=1:Np,
     if points(i,4)>0,
