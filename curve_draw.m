@@ -39,8 +39,14 @@ if is_sample ==1,
 end
 %================&
 
+%=ezplot=%
+syms x y
+str = sprintf('%f*(sin(x)^2)+%f*(cos(y)^2)+%f', weight(1), weight(2), weight(3));
+fig = ezplot(str);
+set(fig,'Color', 'k');
+%========%
+
 %=plot the data set=%
-figure
 hold on
 for i=1:Np,
     if points(i,4)>0,
