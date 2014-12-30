@@ -8,12 +8,12 @@ global weight
 
 %=sampling?=%
 is_sample = 1;
-RandStream.setDefaultStream(RandStream('mt19937ar','seed',4));
+RandStream.setDefaultStream(RandStream('mt19937ar','seed',0));
 %===========%
 
 %=generate the weighting of f function =%
 N = 2; %Space number
-span = 50; %Range field
+span = 5; %Range field
 weight = span*(rand(N+1, 1) - 0.5);
 %=======================================%
 
